@@ -1,23 +1,24 @@
 const express = require('express');
 const router = express.Router();
+
 const findUser = require('../services/helper');
 
-router.post('/', function(req, resp, next) {
+router.post('/', function(req, res, next) {
     // double check that request params have been supplied
     if (req.body && req.body.email && req.body.password) {
         const user = findUser(null, req.body.email);
         // user exists
-        if (user) {
+        if (user && user.length) {
             // passwords match
             if (user[0].password === req.body.password) {
-                resp.json({
+                res.json({
                     status: 200,
                     user: user[0]
                 })
             }
             // wrong password
             else {
-                resp.json({
+                res.json({
                     status: 400,
                     message: 'Email and password do not match!'
                 })
@@ -25,7 +26,7 @@ router.post('/', function(req, resp, next) {
         }
         // user does not exist
         else {
-            resp.json({
+            res.json({
                 status: 400,
                 message: 'User does not exist'
             })
@@ -33,7 +34,7 @@ router.post('/', function(req, resp, next) {
     }
     // request does not contain required params
     else {
-        resp.json({
+        res.json({
             status: 400,
             message: 'Email and/or password are mandatory'
         });

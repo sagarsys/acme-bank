@@ -9,6 +9,7 @@
     "styles": "npm run css && node-sass-chokidar client/src/styles -o client/src --watch --recursive"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
