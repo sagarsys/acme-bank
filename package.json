@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"node ./bin/www\" \"npm run styles\" \"npm run client\"",
+    "start": "concurrently \"nodemon ./bin/www\" \"npm run styles\" \"npm run client\"",
     "client": "cd client && npm start",
     "css": "node-sass-chokidar client/src/styles/ -o client/src",
     "styles": "npm run css && node-sass-chokidar client/src/styles -o client/src --watch --recursive"

@@ -1,17 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const CUSTOMERS = require('../data/customers');
+
+const express = require('express');
+const router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.json([{
-        id: 1,
-        name: "Hiccup",
-        password: 'hiccup'
-    }, {
-        id: 2,
-        name: "King Arthur",
-        password: 'king-arthur'
-    }]);
+    res.json(CUSTOMERS);
 });
 
 module.exports = router;

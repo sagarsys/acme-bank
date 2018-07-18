@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -14,9 +13,18 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+
+                <form action="">
+                    <label>Email</label>
+                    <input type="text"/>
+                    <label>Password</label>
+                    <input type="password"/>
+                    <input type="submit" value="Login"/>
+                </form>
+
                 <h1>Users</h1>
                 {this.state.users.map(user =>
-                    <div key={user.id}>user: {user.name} Password: {user.password}</div>
+                    <div key={user.id}>User: {user.name} <br/> Password: {user.password}<br/><br/></div>
                 )}
             </div>
         );
