@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import NavBar from './components/molecules/NavBar';
 import Footer from './components/molecules/Footer';
+import Profile from './components/Profile';
+import Transactions from './components/Transactions';
 
 class App extends Component {
 	state = {users: []};
@@ -30,6 +32,8 @@ class App extends Component {
 				<main className="container">
 					<Login />
 					<Dashboard />
+					<Profile />
+					<Transactions />
 				</main>
 				<Footer />
 			</div>

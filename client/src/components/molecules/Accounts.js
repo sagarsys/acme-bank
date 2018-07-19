@@ -1,13 +1,13 @@
 import React from 'react';
 
-import CollectionItem from '../atoms/CollectionItem';
+import Account from '../atoms/Account';
 
 export default (props) => (
-	<section className="accounts" {...props}>
+	<section {...props} className="accounts">
 		<ul className="collection">
-			<CollectionItem />
-			<CollectionItem />
-			<CollectionItem />
+			<Account data-edit={true} />
+			<Account />
+			<Account />
 		</ul>
 	</section>
 );

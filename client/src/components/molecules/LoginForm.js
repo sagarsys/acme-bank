@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../atoms/Logo';
+import InputField from '../atoms/InputField';
 
 class LoginForm extends Component {
 
@@ -13,19 +14,23 @@ class LoginForm extends Component {
 					<p>You must login to access your information.</p>
 				</legend>
 
-				<div className="input-field">
-					<i className="material-icons prefix">email</i>
-					<input type="email" name="email" className="validate" required />
-					<label htmlFor="email">Email</label>
-					<span className="helper-text" data-error="Please supply a valid email address, sample: john@email.com"> </span>
-				</div>
+				<InputField
+					type="email"
+					name="email"
+					label="Email"
+					icon="email"
+					required={true}
+					data-error="Please supply a valid email address, sample: john@email.com"
+				/>
 
-				<div className="input-field">
-					<i className="material-icons prefix">vpn_key</i>
-					<input type="password" name="password" className="validate" required />
-					<label htmlFor="password">Password</label>
-					<span className="helper-text" data-error="Password is required, sample: john"> </span>
-				</div>
+				<InputField
+					type="password"
+					name="password"
+					label="Password"
+					icon="vpn_key"
+					required={true}
+					data-error="Password is required, sample: john"
+				/>
 
 				<button type="submit" className="btn-large waves-effect waves-light center-block">Login</button>
 

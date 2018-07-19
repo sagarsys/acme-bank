@@ -34,3 +34,10 @@
 .color-secondary {
 	color: $secondary-color !important;
 }
+
+[disabled] {
+	cursor: not-allowed !important;
+	&:hover {
+		cursor: not-allowed !important;
+	}
+}
