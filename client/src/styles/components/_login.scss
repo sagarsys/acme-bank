@@ -1,0 +1,32 @@
+.login {
+	max-width: 900px;
+	margin: 8rem auto;
+	background-color: color("grey", "lighten-5");
+
+	legend {
+		margin-bottom: $global-spacing;
+	}
+
+	.input-field {
+		margin-top: $global-spacing;
+		label {
+			width: auto !important;
+		}
+	}
+
+	.flow-text {
+		margin-bottom: 0;
+		+ p {
+			margin-top: 0;
+		}
+	}
+
+	p {
+		text-align: center;
+	}
+
+	button {
+		margin-top: $global-spacing;
+	}
+
+}

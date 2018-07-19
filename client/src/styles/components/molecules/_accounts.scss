@@ -1,0 +1,56 @@
+.accounts {
+	.collection-item {
+		background-color: color("grey", "lighten-5");
+		position: relative;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		i.circle {
+			background-color: $primary-color !important;
+		}
+		.account-type {
+			color: $primary-color !important;
+		}
+		.account-balance {
+			span {
+				display: flex;
+				height: 3rem;
+				align-items: center;
+				font-size: 2rem;
+			}
+			i {
+				padding: 3px 0 0;
+				margin-right: .5rem;
+			}
+		}
+		.account-num {
+			padding-top: $global-spacing;
+			font-size: 60%;
+			color: color("blue-grey", "base");
+		}
+		.status {
+			cursor: default;
+			position: absolute;
+			right: 120px;
+			bottom: 1rem;
+			display: flex;
+			justify-content: flex-end;
+			min-width: 80px;
+			@media #{$small-and-down} {
+				right: 100px;
+			}
+			.circle {
+				height: 10px !important;
+				width: 10px !important;
+				right: 0 !important;
+				left: unset !important;
+				transform: translate3d(0, 6px, 0);
+			}
+			span {
+				&:first-child {
+					padding: 0 1.2rem 0 0;
+				}
+			}
+		}
+	}
+}

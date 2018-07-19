@@ -1,0 +1,21 @@
+.hero-banner {
+	.card-title {
+		&:hover {
+			@extend .z-depth-2;
+			background-color: color("grey", "lighten-5");
+			p,
+			i {
+				color: $secondary-color !important;
+			}
+		}
+		p {
+			margin: 0;
+		}
+	}
+	.card-content {
+		h3 {
+			margin-top: 0;
+			color: $secondary-color;
+		}
+	}
+}

@@ -1,0 +1,27 @@
+.nav-wrapper {
+  .brand-logo {
+    img {
+      max-height: $navbar-height;
+      @media #{$small-and-down} {
+        max-height: $navbar-height-mobile !important;
+      }
+    }
+    @media #{$medium-and-down} {
+      left: 0;
+      transform: none;
+    }
+    @media #{$small-and-down} {
+      left: 60px;
+    }
+  }
+  .sidenav-trigger {
+    @media #{$medium-and-up} {
+      display: none;
+    }
+  }
+  .mobile-logout {
+    padding: 0 18px;
+    color: #fff;
+  }
+  
+}

@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
-import POST from './services/fetch-post';
+import POST from './helpers/fetch-post';
+
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import NavBar from './components/molecules/NavBar';
+import Footer from './components/molecules/Footer';
 
 class App extends Component {
 	state = {users: []};
@@ -21,22 +26,25 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-
-				<form action="">
-					<label>Email</label>
-					<input type="text"/>
-					<label>Password</label>
-					<input type="password"/>
-					<input type="submit" value="Login"/>
-				</form>
-
-				<h1>Users</h1>
-				{this.state.users.map(user =>
-					<div key={user.id}>User: {user.name} <br/> Password: {user.password}<br/><br/></div>
-				)}
+				<NavBar/>
+				<main className="container">
+					<Login />
+					<Dashboard />
+				</main>
+				<Footer />
 			</div>
 		);
 	}
 }
 
 export default App;
+// import React from 'react';
+// import { Route, Link } from 'react-router-dom'
+//
+// const App = () => (
+// 	<div>
+//
+// 	</div>
+// );
+//
+// export default App;

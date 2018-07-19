@@ -1,0 +1,36 @@
+.center-block {
+	display: block !important;
+	margin: auto;
+}
+
+.btn-nostyle {
+	appearance: none;
+	outline: none;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	&:hover,
+	&:focus {
+		outline: none;
+		border: 0;
+	}
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+}
+
+.text-shadow {
+	text-shadow: 2px 3px 4px rgba($secondary-color, .6);
+}
+
+.color-white {
+	color: #fff !important;
+}
+
+.color-primary {
+	color: $primary-color !important;
+}
+
+.color-secondary {
+	color: $secondary-color !important;
+}
