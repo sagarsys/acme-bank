@@ -39,6 +39,7 @@ class ProfileDetails extends Component {
 
 	componentDidMount() {
 		this.setState({ user: this.props.user });
+		window.M && window.M.updateTextFields() && window.M.validate_field();
 	}
 
 	handleSubmit(e) {

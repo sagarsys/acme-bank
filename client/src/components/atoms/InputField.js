@@ -13,7 +13,6 @@ export default (props) => (
 			readOnly={props.readonly}
 			disabled={props.disabled}
 			max={props.max}
-			onChange={props.onInputChange}
 			className={props['data-input-class'] || 'validate'}
 		/>
 		<label htmlFor={props.name}>{props.label}</label>

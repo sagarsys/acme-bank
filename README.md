@@ -13,6 +13,10 @@ Fully responsive. Uses mock data to operate -- no DB implemented..yet.
    - This will install server-side dependencies (Express server...)
    - Install client dependencies (react redux stuff...)
    - If everything went right, it should then create an Express server on `PORT 5000` and a WebpackDevServer on `PORT 3000` - which should open up in the browser
+- You can use any of the following details to log into the app:
+    - `Email: john@email.com  ---> Password: john`
+    - `Email: sam@email.com  ---> Password: sam`
+    - `Email: jane@acme.com  ---> Password: jane`
 
 ## _TODO / Improvements_
 - Hide Nav on Login screen
