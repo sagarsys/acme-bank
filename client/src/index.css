@@ -12089,6 +12089,20 @@ input[type=range]::-ms-thumb {
   [disabled]:hover {
     cursor: not-allowed !important; }
 
+h1 {
+  border-bottom: 1px solid #263238; }
+
+form legend {
+  margin-bottom: 1.5rem; }
+
+form .input-field {
+  margin-top: 1.5rem; }
+  form .input-field label {
+    width: auto !important; }
+
+.flow-text {
+  margin-bottom: 1rem; }
+
 /* =========================
  * CUSTOM COMPONENTS
  * ========================= */
@@ -12107,9 +12121,14 @@ input[type=range]::-ms-thumb {
   .nav-wrapper .brand-logo {
     left: 60px; } }
 
-@media only screen and (min-width: 768px) {
-  .nav-wrapper .sidenav-trigger {
-    display: none; } }
+.nav-wrapper .sidenav-trigger {
+  padding: 0 !important;
+  margin: 0; }
+  .nav-wrapper .sidenav-trigger i {
+    padding: 0 18px; }
+  @media only screen and (min-width: 768px) {
+    .nav-wrapper .sidenav-trigger {
+      display: none; } }
 
 .nav-wrapper .mobile-logout {
   padding: 0 18px;
@@ -12127,7 +12146,7 @@ input[type=range]::-ms-thumb {
 .hero-banner .card-title p {
   margin: 0; }
 
-.hero-banner .card-content h3 {
+.hero-banner .card-content h1 {
   margin-top: 0;
   color: #263238; }
 
@@ -12181,12 +12200,6 @@ input[type=range]::-ms-thumb {
   max-width: 900px;
   margin: 8rem auto;
   background-color: #fafafa; }
-  .login legend {
-    margin-bottom: 1.5rem; }
-  .login .input-field {
-    margin-top: 1.5rem; }
-    .login .input-field label {
-      width: auto !important; }
   .login .flow-text {
     margin-bottom: 0; }
     .login .flow-text + p {

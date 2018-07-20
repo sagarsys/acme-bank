@@ -7,6 +7,8 @@ import { checkLogin } from '../../actions/loginActions';
 import Logo from '../atoms/Logo';
 import InputField from '../atoms/InputField';
 
+import { history } from '../../store';
+
 class LoginForm extends Component {
 	constructor(props) {
 		super(props);
@@ -26,8 +28,8 @@ class LoginForm extends Component {
 	componentWillReceiveProps(nextProps) {
 		switch ( nextProps.status ) {
 			case 200:
-				// TODO: redirect needed
-				console.log('redirecting....', this.state, this.props);
+				console.log('redirecting....');
+				history.push('/dashboard');
 				break;
 			case 100:
 				this.setState({ hasError: false });

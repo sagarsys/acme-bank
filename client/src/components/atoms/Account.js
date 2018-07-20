@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { formatNumberToCurrencyFormat } from '../../helpers/utilities';
 
 export default (props) => (
@@ -25,9 +26,9 @@ export default (props) => (
 		{
 			(!props['data-edit'] && !props['data-view'] && props.account.status) ?
 				(
-					<a href="#!" className="secondary-content btn-floating btn-large waves-effect waves-light secondary" title="View Transactions">
+					<Link to={`/transactions/${props.account.number}`} className="secondary-content btn-floating btn-large waves-effect waves-light secondary" title="View Transactions">
 						<i className="material-icons">add</i>
-					</a>
+					</Link>
 				)
 			:
 				null

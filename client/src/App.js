@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 import './App.css';
-import store from './store';
 
 import NavBar from './components/molecules/NavBar';
 import Footer from './components/molecules/Footer';
@@ -15,18 +14,19 @@ import Transactions from './components/Transactions';
 class App extends Component {
 	render() {
 		return (
-			<Provider store={store}>
-				<div className="App">
-					<NavBar/>
-					<main className="container">
-						<Login />
-						<Dashboard />
-						<Profile />
-						<Transactions />
-					</main>
-					<Footer />
-				</div>
-			</Provider>
+			<div className="App">
+				<NavBar />
+				<main className="container">
+					<Route exact path="/" component={Login} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/logout" component={Login} />
+					<Route exact path="/dashboard" component={Dashboard} />
+					<Route exact path="/profile" component={Profile} />
+					<Route exact path="/transactions/:accountNumber" component={Transactions} />
+					<Route exact path="/transactions" component={Transactions} />
+				</main>
+				<Footer />
+			</div>
 		);
 	}
 }

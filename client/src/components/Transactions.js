@@ -1,10 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import AccountTransaction from './molecules/AccountTransaction';
 
 class Transactions extends Component {
+
+	componentDidMount() {
+		window.M && window.M.Collapsible.init(document.querySelectorAll('.collapsible'), null);
+	}
+
 	render() {
 		return (
 			<section className="transactions">

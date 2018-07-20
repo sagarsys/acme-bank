@@ -15,6 +15,11 @@
 		}
 	}
 	.sidenav-trigger {
+		padding: 0 !important;
+		margin: 0;
+		i {
+			padding: 0 18px;
+		}
 		@media #{$medium-and-up} {
 			display: none;
 		}

@@ -10,7 +10,7 @@ export default (props) => (
 			<HeroImage />
 			<QuickProfileAccess className="card-title" user={props.user} />
 		</div>
-		<Welcome className="card-content" />
+		<Welcome data-account-number={props.user.accounts && props.user.accounts[0].number} className="card-content" />
 	</div>
 );
 

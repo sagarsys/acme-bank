@@ -1,0 +1,22 @@
+h1 {
+	border-bottom: 1px solid $secondary-color;
+}
+
+form {
+	legend {
+		margin-bottom: $global-spacing;
+	}
+
+	.input-field {
+		margin-top: $global-spacing;
+
+		label {
+			width: auto !important;
+		}
+	}
+}
+
+.flow-text {
+	margin-bottom: 1rem;
+}
+

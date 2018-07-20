@@ -1,8 +1,6 @@
 import { DEFAULT_XHR_HEADERS } from '../actions/types';
 
 export const POST = async (url, data = null, headers = DEFAULT_XHR_HEADERS) => {
-	console.log('data',data);
-
 	return await fetch(url, {
 		method: 'POST',
 		mode: 'cors',
