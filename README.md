@@ -16,8 +16,9 @@ Fully responsive. Uses mock data to operate -- no DB implemented..yet.
 
 ## _TODO / Improvements_
 - Hide Nav on Login screen
-- Fix bug with Profile page editing -- Add redux-form to fix pre-population of form data from redux store
+- Fix bug with Profile page editing -- Add redux-form to fix pre-population of form data from redux store ---> _Hopefully this will lead to a generic form error management strategy_
 - Migrate all of the state management away from react to redux
+- Update README with a more detailed overview of the project
 - Prevent user access to application routes if not authenticated -- redirect to Login
 - Add new feature to Profile page that would allow the user to toggle the status of his accounts (active/inactive)
 - Add material progress whenever a request is made to server

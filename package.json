@@ -1,6 +1,6 @@
 {
   "name": "acme-bank",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "quickstart": "npm i && npm run client-install && cd ../ && npm run start",
@@ -22,5 +22,7 @@
   },
   "devDependencies": {
     "concurrently": "^3.6.0"
-  }
+  },
+  "author": "Sagar Sawuck<sagar.sawuck@gmail.com>",
+  "license": "MIT"
 }
