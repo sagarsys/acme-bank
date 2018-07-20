@@ -6,7 +6,7 @@ export default () => (
 			<div className="container">
 				<span>© {(new Date()).getFullYear()} ACME Bank</span>
 				<span className="grey-text text-lighten-4 right">
-					Designed & developed by <a className="grey-text text-lighten-4" href="#!">Sagar</a>
+					Designed & developed by <a className="grey-text text-lighten-4" href="https://github.com/sagarsys" rel="noopener" target="_blank">Sagar</a>
 				</span>
 			</div>
 		</div>
