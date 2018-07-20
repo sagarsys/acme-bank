@@ -5,9 +5,9 @@ import Account from '../atoms/Account';
 export default (props) => (
 	<section {...props} className="accounts">
 		<ul className="collection">
-			<Account data-edit={true} />
-			<Account />
-			<Account />
+			{props.user.accounts && props.user.accounts.map((account) => (
+				account.status ? <Account key={account.number} account={account} /> : null
+			))}
 		</ul>
 	</section>
 );

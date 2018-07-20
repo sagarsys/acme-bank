@@ -1,4 +1,5 @@
 .accounts {
+	width: 100%;
 	.collection-item {
 		background-color: color("grey", "lighten-5");
 		position: relative;
@@ -51,6 +52,11 @@
 					padding: 0 1.2rem 0 0;
 				}
 			}
+		}
+	}
+	&.account-transaction {
+		.status {
+			right: 1rem !important;
 		}
 	}
 }

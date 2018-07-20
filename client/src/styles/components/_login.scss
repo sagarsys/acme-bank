@@ -1,4 +1,5 @@
 .login {
+
 	max-width: 900px;
 	margin: 8rem auto;
 	background-color: color("grey", "lighten-5");
@@ -9,6 +10,7 @@
 
 	.input-field {
 		margin-top: $global-spacing;
+
 		label {
 			width: auto !important;
 		}
@@ -29,4 +31,18 @@
 		margin-top: $global-spacing;
 	}
 
+	.error-panel {
+		@extend .z-depth-3;
+		padding: 4px 12px;
+		margin: 2rem auto 3rem;
+		p {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: auto;
+			i {
+				padding-right: 12px;
+			}
+		}
+	}
 }

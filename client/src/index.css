@@ -3645,7 +3645,7 @@ a {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
 
 /* 12dp elevation modified*/
-.z-depth-3 {
+.z-depth-3, .login .error-panel {
   box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
 
 /* 16dp elevation */
@@ -8570,7 +8570,7 @@ a {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
 
 /* 12dp elevation modified*/
-.z-depth-3 {
+.z-depth-3, .login .error-panel {
   box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
 
 /* 16dp elevation */
@@ -12118,6 +12118,65 @@ input[type=range]::-ms-thumb {
 .page-footer {
   padding: 0; }
 
+.hero-banner .card-title:hover {
+  background-color: #fafafa; }
+  .hero-banner .card-title:hover p,
+  .hero-banner .card-title:hover i {
+    color: #263238 !important; }
+
+.hero-banner .card-title p {
+  margin: 0; }
+
+.hero-banner .card-content h3 {
+  margin-top: 0;
+  color: #263238; }
+
+.accounts {
+  width: 100%; }
+  .accounts .collection-item {
+    background-color: #fafafa;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: center; }
+    .accounts .collection-item i.circle {
+      background-color: #29b6f6 !important; }
+    .accounts .collection-item .account-type {
+      color: #29b6f6 !important; }
+    .accounts .collection-item .account-balance span {
+      display: flex;
+      height: 3rem;
+      align-items: center;
+      font-size: 2rem; }
+    .accounts .collection-item .account-balance i {
+      padding: 3px 0 0;
+      margin-right: .5rem; }
+    .accounts .collection-item .account-num {
+      padding-top: 1.5rem;
+      font-size: 60%;
+      color: #607d8b; }
+    .accounts .collection-item .status {
+      cursor: default;
+      position: absolute;
+      right: 120px;
+      bottom: 1rem;
+      display: flex;
+      justify-content: flex-end;
+      min-width: 80px; }
+      @media only screen and (max-width: 767px) {
+        .accounts .collection-item .status {
+          right: 100px; } }
+      .accounts .collection-item .status .circle {
+        height: 10px !important;
+        width: 10px !important;
+        right: 0 !important;
+        left: unset !important;
+        transform: translate3d(0, 6px, 0); }
+      .accounts .collection-item .status span:first-child {
+        padding: 0 1.2rem 0 0; }
+  .accounts.account-transaction .status {
+    right: 1rem !important; }
+
 .login {
   max-width: 900px;
   margin: 8rem auto;
@@ -12136,58 +12195,19 @@ input[type=range]::-ms-thumb {
     text-align: center; }
   .login button {
     margin-top: 1.5rem; }
+  .login .error-panel {
+    padding: 4px 12px;
+    margin: 2rem auto 3rem; }
+    .login .error-panel p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto; }
+      .login .error-panel p i {
+        padding-right: 12px; }
 
-.hero-banner .card-title:hover {
-  background-color: #fafafa; }
-  .hero-banner .card-title:hover p,
-  .hero-banner .card-title:hover i {
-    color: #263238 !important; }
-
-.hero-banner .card-title p {
-  margin: 0; }
-
-.hero-banner .card-content h3 {
-  margin-top: 0;
-  color: #263238; }
-
-.accounts .collection-item {
-  background-color: #fafafa;
-  position: relative;
-  display: flex;
-  flex-flow: column;
-  justify-content: center; }
-  .accounts .collection-item i.circle {
-    background-color: #29b6f6 !important; }
-  .accounts .collection-item .account-type {
-    color: #29b6f6 !important; }
-  .accounts .collection-item .account-balance span {
-    display: flex;
-    height: 3rem;
-    align-items: center;
-    font-size: 2rem; }
-  .accounts .collection-item .account-balance i {
-    padding: 3px 0 0;
-    margin-right: .5rem; }
-  .accounts .collection-item .account-num {
-    padding-top: 1.5rem;
-    font-size: 60%;
-    color: #607d8b; }
-  .accounts .collection-item .status {
-    cursor: default;
-    position: absolute;
-    right: 120px;
-    bottom: 1rem;
-    display: flex;
-    justify-content: flex-end;
-    min-width: 80px; }
-    @media only screen and (max-width: 767px) {
-      .accounts .collection-item .status {
-        right: 100px; } }
-    .accounts .collection-item .status .circle {
-      height: 10px !important;
-      width: 10px !important;
-      right: 0 !important;
-      left: unset !important;
-      transform: translate3d(0, 6px, 0); }
-    .accounts .collection-item .status span:first-child {
-      padding: 0 1.2rem 0 0; }
+.profile .profile-form button {
+  display: flex !important;
+  align-items: center; }
+  .profile .profile-form button i {
+    padding: 0 8px 0 0; }

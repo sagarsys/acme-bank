@@ -8,13 +8,19 @@ export default (props) => (
 			name={props.name}
 			required={props.required}
 			value={props.value}
+			defaultValue={props.defaultValue}
 			pattern={props.pattern}
 			readOnly={props.readonly}
 			disabled={props.disabled}
 			max={props.max}
-			className="validate"
+			onChange={props.onInputChange}
+			className={props['data-input-class'] || 'validate'}
 		/>
 		<label htmlFor={props.name}>{props.label}</label>
-		<span className="helper-text" data-error={props['data-error']}> </span>
+		<span className="helper-text"
+		      data-error={props['data-error']}
+		      data-success={props['data-success']}
+		> </span>
 	</div>
 );
+

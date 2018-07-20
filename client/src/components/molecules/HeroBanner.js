@@ -8,7 +8,7 @@ export default (props) => (
 	<div className="card hero-banner" {...props}>
 		<div className="card-image">
 			<HeroImage />
-			<QuickProfileAccess className="card-title" />
+			<QuickProfileAccess className="card-title" user={props.user} />
 		</div>
 		<Welcome className="card-content" />
 	</div>
