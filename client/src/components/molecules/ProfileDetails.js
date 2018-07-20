@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import InputField from '../atoms/InputField';
-import POST from '../../helpers/fetch-post';
-import { LOGIN_ACTION } from '../../actions/types';
+import PUT from '../../helpers/fetch-put';
 // import Accounts from './Accounts'
 
 // TODO: Use redux-form to fix controlled to uncontrolled component console warning
@@ -54,7 +53,7 @@ class ProfileDetails extends Component {
 			address: this.state.user.address
 		};
 
-		PUT('/api/profile', loginDetails)
+		PUT('/api/profile', user)
 			.then(
 				data => console.log(data)
 			);
@@ -87,7 +86,7 @@ class ProfileDetails extends Component {
 				</legend>
 
 				<InputField
-					value={this.state.user && this.state.user.name || this.props.user.name}
+					value={(this.state.user && this.state.user.name) || this.props.user.name}
 					className="col s12"
 					name="name"
 					label="Name"
@@ -100,7 +99,7 @@ class ProfileDetails extends Component {
 				/>
 
 				<InputField
-					value={this.state.user && this.state.user.email || this.props.user.email}
+					value={(this.state.user && this.state.user.email) || this.props.user.email}
 					className="col s12"
 					type="email"
 					name="email"
@@ -114,7 +113,7 @@ class ProfileDetails extends Component {
 				/>
 
 				<InputField
-					value={this.state.user && this.state.user.password || this.props.user.password}
+					value={(this.state.user && this.state.user.password) || this.props.user.password}
 					className="col s12"
 					type="password"
 					name="password"
@@ -128,7 +127,7 @@ class ProfileDetails extends Component {
 				/>
 
 				<InputField
-					value={this.state.user && this.state.user.phone || this.props.user.phone}
+					value={(this.state.user && this.state.user.phone) || this.props.user.phone}
 					className="col s12"
 					type="tel"
 					name="phone"
@@ -142,7 +141,7 @@ class ProfileDetails extends Component {
 				/>
 
 				<InputField
-					value={this.state.user && this.state.user.address || this.props.user.address}
+					value={(this.state.user && this.state.user.address) || this.props.user.address}
 					className="col s12"
 					type="text"
 					name="address"
@@ -152,6 +151,9 @@ class ProfileDetails extends Component {
 					data-error="Address is required, sample: Street Name, City, Country"
 					onChange={ this.onInputChange }
 				/>
+
+				{/*TODO: Implement Accounts to toggle Account status*/}
+				{/*<Accounts data-edit={true} />*/}
 
 				<button type="submit" className="btn-large waves-effect waves-light center-block" disabled={!this.state.hasError && this.state.hasChange}>
 					<i className="material-icons">save</i>Save Changes
