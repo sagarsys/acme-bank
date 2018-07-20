@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "quickstart": "npm i && npm run client-install && cd ../ && npm run start",
     "start": "concurrently \"nodemon ./bin/www\" \"npm run styles\" \"npm run client\"",
     "client": "cd client && npm start",
+    "client-install": "cd client && npm install",
     "css": "node-sass-chokidar client/src/styles/ -o client/src",
     "styles": "npm run css && node-sass-chokidar client/src/styles -o client/src --watch --recursive"
   },
