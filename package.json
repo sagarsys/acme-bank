@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "quickstart": "npm i && npm run client-install && cd ../ && npm run start",
+    "quickstart": "npm i && npm run client-install && npm run start",
     "start": "concurrently \"nodemon ./bin/www\" \"npm run styles\" \"npm run client\"",
     "client": "cd client && npm start",
     "client-install": "cd client && npm install",
@@ -17,7 +17,7 @@
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
-    "node-sass-chokidar": "^1.3.0",
+    "node-sass-chokidar": "^1.3.3",
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {

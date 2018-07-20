@@ -12167,6 +12167,8 @@ form .input-field {
       height: 3rem;
       align-items: center;
       font-size: 2rem; }
+      .accounts .collection-item .account-balance span span:first-of-type {
+        padding-right: 1rem; }
     .accounts .collection-item .account-balance i {
       padding: 3px 0 0;
       margin-right: .5rem; }

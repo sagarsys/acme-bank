@@ -18,6 +18,11 @@
 				height: 3rem;
 				align-items: center;
 				font-size: 2rem;
+				span {
+					&:first-of-type {
+						padding-right: 1rem;
+					}
+				}
 			}
 			i {
 				padding: 3px 0 0;
