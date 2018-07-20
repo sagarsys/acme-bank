@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import InputField from '../atoms/InputField';
+import POST from '../../helpers/fetch-post';
+import { LOGIN_ACTION } from '../../actions/types';
 // import Accounts from './Accounts'
 
 // TODO: Use redux-form to fix controlled to uncontrolled component console warning
@@ -15,6 +17,7 @@ class ProfileDetails extends Component {
 		super(props);
 		this.state = {
 			user: {
+				id: props.user.id || '',
 				name: props.user.name || '',
 				email: props.user.email || '',
 				password: props.user.password || '',
@@ -43,12 +46,22 @@ class ProfileDetails extends Component {
 		e.preventDefault();
 
 		const user = {
+			id: this.state.user.id,
 			name: this.state.user.name,
 			email: this.state.user.email,
 			password: this.state.user.password,
 			phone: this.state.user.phone,
 			address: this.state.user.address
 		};
+
+		PUT('/api/profile', loginDetails)
+			.then(
+				data => console.log(data)
+			);
+			// .then(data => dispatch({
+			// 		type: SAVE_ACTION,
+			// 		payload: data
+			// 	})
 
 		this.setState( user );
 	};
@@ -74,7 +87,7 @@ class ProfileDetails extends Component {
 				</legend>
 
 				<InputField
-					value={this.props.user.name}
+					value={this.state.user && this.state.user.name || this.props.user.name}
 					className="col s12"
 					name="name"
 					label="Name"
@@ -87,7 +100,7 @@ class ProfileDetails extends Component {
 				/>
 
 				<InputField
-					value={this.props.user.email}
+					value={this.state.user && this.state.user.email || this.props.user.email}
 					className="col s12"
 					type="email"
 					name="email"
@@ -101,7 +114,7 @@ class ProfileDetails extends Component {
 				/>
 
 				<InputField
-					value={this.props.user.password}
+					value={this.state.user && this.state.user.password || this.props.user.password}
 					className="col s12"
 					type="password"
 					name="password"
@@ -115,7 +128,7 @@ class ProfileDetails extends Component {
 				/>
 
 				<InputField
-					value={this.props.user.phone}
+					value={this.state.user && this.state.user.phone || this.props.user.phone}
 					className="col s12"
 					type="tel"
 					name="phone"
@@ -129,7 +142,7 @@ class ProfileDetails extends Component {
 				/>
 
 				<InputField
-					value={this.props.user.address}
+					value={this.state.user && this.state.user.address || this.props.user.address}
 					className="col s12"
 					type="text"
 					name="address"

@@ -7,6 +7,11 @@ export const DEPOSIT_TRANSACTION = 'deposit';
 export const WITHDRAWAL_TRANSACTION = 'withdrawal';
 export const INACTIVE = 0;
 export const ACTIVE = 1;
+export const DEFAULT_XHR_HEADERS = {
+	'Accept': 'application/json',
+	'Content-Type': 'application/json'
+};
+
 
 /*
 * ACTIONS
