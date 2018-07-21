@@ -16,7 +16,7 @@ import Transactions from './components/Transactions';
 class App extends Component {
 	componentDidMount() {
 		const props = this.props;
-		if (props.status !== OK_STATUS && this.props.status !== DEFAULT_STATUS && props.status !== REDIRECT_STATUS) {
+		if (props.status !== OK_STATUS && props.status !== DEFAULT_STATUS && props.status !== REDIRECT_STATUS) {
 			// redirect to login
 			this.props.redirectUser();
 		}
