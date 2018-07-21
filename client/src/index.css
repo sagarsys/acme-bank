@@ -12065,7 +12065,11 @@ input[type=range]::-ms-thumb {
   outline: none;
   border: 0;
   background: transparent;
-  cursor: pointer; }
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; }
   .btn-nostyle:hover, .btn-nostyle:focus {
     outline: none;
     border: 0; }
@@ -12122,8 +12126,11 @@ form .input-field {
     left: 60px; } }
 
 .nav-wrapper .sidenav-trigger {
+  background-color: #263238;
   padding: 0 !important;
   margin: 0; }
+  .nav-wrapper .sidenav-trigger:hover {
+    background-color: #07090a; }
   .nav-wrapper .sidenav-trigger i {
     padding: 0 18px; }
   @media only screen and (min-width: 768px) {

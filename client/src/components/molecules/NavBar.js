@@ -1,56 +1,65 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { history } from '../../store';
 
 import Logo from '../atoms/Logo';
 
 class NavBar extends Component {
+
+	constructor(props) {
+		super(props);
+		this.handleLogOut = this.handleLogOut.bind(this);
+	}
+
+	handleLogOut() {
+		// TODO : Dispatch LOG_OUT action to clear user data from store
+		history.push('/');
+	}
+
 	render() {
 		return (
 			<header>
 				<nav>
 					<div className="nav-wrapper">
 
-						<Link to="/dashboard" className="brand-logo">
+						<Link to="/dashboard" className="brand-logo" title="Go to your Dashboard">
 							<Logo />
 						</Link>
 
-						<button className="btn-nostyle white-text sidenav-trigger" data-target="mobile-sidenav">
+						<button className="btn-nostyle sidenav-trigger" data-target="mobile-sidenav" title="Open side menu">
 							<i className="material-icons">menu</i>
 						</button>
 
 						<ul className="right hide-on-small-and-down">
 
 							<li className="active">
-								<Link to='/dashboard'>
+								<Link to='/dashboard' title="Go to your dashboard">
 									<i className="material-icons left">dashboard</i>Dashboard
 								</Link>
 							</li>
 
 							<li>
-								<Link to='/transactions'>
+								<Link to='/transactions' title="Go to your transacctions">
 									<i className="material-icons left">view_list</i>Transactions
 								</Link>
 							</li>
 
 							<li>
-								<Link to='/profile'>
+								<Link to='/profile' title="Go to your profile">
 									<i className="material-icons left">person</i>Profile
 								</Link>
 							</li>
 
 							<li>
-								<Link to='/logout'>
+								<button className="btn-nostyle" onClick={this.handleLogOut} title="Log out from website">
 									<i className="material-icons left">power_settings_new</i>Logout
-								</Link>
+								</button>
 							</li>
 
 						</ul>
-						<Link to='/' className="btn-nostyle right hide-on-med-and-up mobile-logout">
+						<button className="btn-nostyle right hide-on-med-and-up mobile-logout" onClick={this.handleLogOut}>
 							<i className="material-icons">power_settings_new</i>
-						</Link>
-						{/*<button className="btn-nostyle right hide-on-med-and-up mobile-logout">*/}
-							{/*<i className="material-icons">power_settings_new</i>*/}
-						{/*</button>*/}
+						</button>
 					</div>
 				</nav>
 				<ul className="sidenav" id="mobile-sidenav">

@@ -9,6 +9,10 @@
 	border: 0;
 	background: transparent;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
 	&:hover,
 	&:focus {
 		outline: none;

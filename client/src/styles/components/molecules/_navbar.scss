@@ -15,8 +15,12 @@
 		}
 	}
 	.sidenav-trigger {
+		background-color: $secondary-color;
 		padding: 0 !important;
 		margin: 0;
+		&:hover {
+			background-color: darken($secondary-color, 15%);
+		}
 		i {
 			padding: 0 18px;
 		}

@@ -1,10 +1,11 @@
 # **ACME BANK** 
 API based banking app using Express, React, Redux, React Router, Webpack & materialize-css.
-Fully responsive. Uses mock data to operate -- no DB implemented..yet.
+Fully responsive. Uses mock data to operate.
 
 ## _Requirements_
 - Node JS
 - NPM / YARN
+- node-sass-chokidar [ `npm i -g node-sass-chokidar` ]
 
 ## _Quick start_
 - Clone or download project
