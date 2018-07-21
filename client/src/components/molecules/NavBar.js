@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { history } from '../../store';
 import { OK_STATUS } from '../../actions/types';
 
 import Logo from '../atoms/Logo';
