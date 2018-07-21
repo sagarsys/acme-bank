@@ -10,7 +10,7 @@ import AccountTransaction from './molecules/AccountTransaction';
 class Transactions extends Component {
 	componentDidMount() {
 		const props = this.props;
-		if (!props.status || props.status !== OK_STATUS) {
+		if (props.status && props.status !== OK_STATUS) {
 			// redirect to login
 			props.redirectUser();
 			return;
