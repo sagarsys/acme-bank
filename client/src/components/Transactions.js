@@ -10,7 +10,7 @@ import AccountTransaction from './molecules/AccountTransaction';
 class Transactions extends Component {
 	componentDidMount() {
 		const props = this.props;
-		if ((props.status && props.status !== OK_STATUS) || !props.status) {
+		if (!props.status || props.status !== OK_STATUS) {
 			// redirect to login
 			props.redirectUser();
 			return;
@@ -43,7 +43,8 @@ Transactions.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	user: state.login.user
+	user: state.login.user,
+	status: state.login.status
 });
 
 export default withRouter(connect(mapStateToProps, { redirectUser })(Transactions));

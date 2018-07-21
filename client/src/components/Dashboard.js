@@ -11,7 +11,7 @@ import Accounts from './molecules/Accounts';
 class Dashboard extends Component {
 	componentDidMount() {
 		const props = this.props;
-		if ((props.status && props.status !== OK_STATUS) || !props.status) {
+		if (props.status && props.status !== OK_STATUS) {
 			// redirect to login
 			props.redirectUser();
 		}
@@ -38,7 +38,8 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	user: state.login.user
+	user: state.login.user,
+	status: state.login.status
 });
 
 export default withRouter(connect(mapStateToProps, { redirectUser })(Dashboard));

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { DEFAULT_STATUS, OK_STATUS, REDIRECT_STATUS } from './actions/types';
@@ -14,19 +14,9 @@ import Profile from './components/Profile';
 import Transactions from './components/Transactions';
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-		this.props.history.listen((location, action) => {
-			console.log("on route change", location, action);
-			if (this.props.status === REDIRECT_STATUS) {
-				console.log('redirecting...');
-				this.forceUpdate();
-			}
-		});
-	}
-
 	componentDidMount() {
-		if ((this.props.status && this.props.status !== OK_STATUS && this.props.status !== DEFAULT_STATUS) || !this.props.status) {
+		const props = this.props;
+		if (props.status !== OK_STATUS && this.props.status !== DEFAULT_STATUS && props.status !== REDIRECT_STATUS) {
 			// redirect to login
 			this.props.redirectUser();
 		}

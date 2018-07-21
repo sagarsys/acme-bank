@@ -34,8 +34,9 @@ export default (state = initialState, action) => {
 			};
 		case REDIRECT_ACTION:
 			return {
-				status: REDIRECT_STATUS,
-				message: 'You must login to proceed any further'
+				status: action.payload.status || REDIRECT_STATUS,
+				message: action.payload.message || 'You must login to proceed any further',
+				user: state.user
 			};
 		default:
 			return state;

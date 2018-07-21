@@ -34,7 +34,7 @@ class LoginForm extends Component {
 		if (prevProps && prevProps !== this.props && this.props.status)
 		switch ( this.props.status ) {
 			case OK_STATUS:
-				this.props.redirectUser('/dashboard');
+				this.props.redirectUser('/dashboard', { status: OK_STATUS, message: '' });
 				break;
 			case DEFAULT_STATUS:
 				this.setState({ hasError: false });

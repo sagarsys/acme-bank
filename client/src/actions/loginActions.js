@@ -22,9 +22,10 @@ export const logoutUser = () => dispatch => dispatch({
 	type: LOGOUT_ACTION
 });
 
-export const redirectUser = (path = '/') => dispatch => {
+export const redirectUser = (path = '/', data = {}) => dispatch => {
 	history.push(path);
 	return dispatch({
-		type: REDIRECT_ACTION
+		type: REDIRECT_ACTION,
+		payload: data
 	});
 };
