@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { OK_STATUS } from '../../actions/types';
+import { logoutUser, redirectUser } from '../../actions/loginActions';
 
 import Logo from '../atoms/Logo';
 
@@ -90,10 +92,13 @@ class NavBar extends Component {
 	}
 }
 
-
 NavBar.propTypes = {
 	logoutUser: PropTypes.func.isRequired,
 	status: PropTypes.number.isRequired,
 };
 
-export default NavBar;
+const mapStateToProps = state => ({
+	status: state.login.status
+});
+
+export default withRouter(connect(mapStateToProps, { logoutUser, redirectUser })(NavBar))

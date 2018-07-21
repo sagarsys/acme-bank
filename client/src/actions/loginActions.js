@@ -18,9 +18,12 @@ export const checkLogin = (loginDetails) => dispatch => {
 	);
 };
 
-export const logoutUser = () => dispatch => dispatch({
-	type: LOGOUT_ACTION
-});
+export const logoutUser = () => dispatch => {
+	history.push('/');
+	return dispatch({
+		type: LOGOUT_ACTION
+	});
+};
 
 export const redirectUser = (path = '/', data = {}) => dispatch => {
 	history.push(path);
