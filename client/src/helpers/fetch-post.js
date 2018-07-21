@@ -10,7 +10,7 @@ export const POST = async (url, data = null, headers = DEFAULT_XHR_HEADERS) => {
 		body: data ? JSON.stringify(data) : null
 	})
 	.then(response => response.json())
-	.catch(error => console.error(`Fetch error \n`, error));
+	.catch(error => console.log(`Fetch error \n`, error));
 };
 
 export default POST;

@@ -1,11 +1,30 @@
-import { LOGIN_ACTION } from './types';
+import { LOGIN_ACTION, LOGOUT_ACTION, REDIRECT_ACTION, SERVER_ERROR } from './types';
 import POST from '../helpers/fetch-post';
+import { history } from '../store';
 
 export const checkLogin = (loginDetails) => dispatch => {
 	POST('/api/login', loginDetails)
-		.then(data => dispatch({
-			type: LOGIN_ACTION,
-			payload: data
-		})
+		.then(data => {
+			if (data) {
+				return dispatch({
+					type: LOGIN_ACTION,
+					payload: data
+				})
+			}
+			return dispatch({
+				type: SERVER_ERROR
+			})
+		}
 	);
+};
+
+export const logoutUser = () => dispatch => dispatch({
+	type: LOGOUT_ACTION
+});
+
+export const redirectUser = (path = '/') => dispatch => {
+	history.push(path);
+	return dispatch({
+		type: REDIRECT_ACTION
+	});
 };

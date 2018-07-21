@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-import { checkLogin } from '../../actions/loginActions';
+import { checkLogin, redirectUser } from '../../actions/loginActions';
+import {
+	_404_ERROR_STATUS,
+	AUTHENTICATION_ERROR_STATUS,
+	DEFAULT_STATUS,
+	ERROR_STATUS,
+	OK_STATUS
+} from '../../actions/types';
 
 import Logo from '../atoms/Logo';
 import InputField from '../atoms/InputField';
-
-import { history } from '../../store';
 
 class LoginForm extends Component {
 	constructor(props) {
@@ -25,28 +30,28 @@ class LoginForm extends Component {
 		this.onInputChange = this.onInputChange.bind(this);
 	}
 
-	componentWillReceiveProps(nextProps) {
-		switch ( nextProps.status ) {
-			case 200:
-				console.log('redirecting....');
-				history.push('/dashboard');
+	componentDidUpdate(prevProps) {
+		if (prevProps && prevProps !== this.props && this.props.status)
+		switch ( this.props.status ) {
+			case OK_STATUS:
+				this.props.redirectUser('/dashboard');
 				break;
-			case 100:
+			case DEFAULT_STATUS:
 				this.setState({ hasError: false });
 				break;
-			case 404:
+			case _404_ERROR_STATUS:
 				// User does not exist
 				this.setState({ hasError: true, isEmailValid: false, message: 'No user with this email found' });
 				break;
-			case 401:
+			case AUTHENTICATION_ERROR_STATUS:
 				// Wrong password
 				this.setState({ hasError: true, isPassValid: false, message: 'Wrong password' });
 				break;
-			case 400:
+			case ERROR_STATUS:
 				// Both
 				this.setState({ hasError: true, isEmailValid: false, isPassValid: false, message: 'Sorry, looks like something went wrong! Try again? :)' });
 				break;
-			case ( nextProps.status >= 400 ):
+			case ( this.props.status >= ERROR_STATUS ):
 			default:
 				this.setState({ hasError: true });
 				break;
@@ -136,7 +141,11 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-	checkLogin: PropTypes.func.isRequired
+	checkLogin: PropTypes.func.isRequired,
+	redirectUser: PropTypes.func.isRequired,
+	status: PropTypes.number,
+	user: PropTypes.object,
+	message: PropTypes.string,
 };
 
 const mapStateToProps = (state) => ({
@@ -145,4 +154,4 @@ const mapStateToProps = (state) => ({
 	user: state.login.user
 });
 
-export default connect(mapStateToProps, { checkLogin })(LoginForm);
+export default withRouter(connect(mapStateToProps, { checkLogin, redirectUser })(LoginForm));

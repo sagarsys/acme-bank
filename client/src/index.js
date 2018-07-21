@@ -3,26 +3,23 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import store, { history } from './store';
-import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import materialize from './helpers/materialize';
 
 import './index.css';
-
-import materialize from './helpers/materialize';
-import registerServiceWorker from './registerServiceWorker';
-
+import App from './App';
 
 const target = document.getElementById('root');
 
-ReactDOM.render(
+const Root = () => (
 	<Provider store={store}>
 		<ConnectedRouter history={history}>
-			<div>
-				<App />
-			</div>
+			<App />
 		</ConnectedRouter>
-	</Provider>,
-	target
+	</Provider>
 );
+
+ReactDOM.render(<Root />, target);
 
 materialize(window);
 registerServiceWorker();

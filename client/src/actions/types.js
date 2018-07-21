@@ -11,13 +11,21 @@ export const DEFAULT_XHR_HEADERS = {
 	'Accept': 'application/json',
 	'Content-Type': 'application/json'
 };
-
+export const DEFAULT_STATUS = 100;
+export const OK_STATUS = 200;
+export const ERROR_STATUS = 400;
+export const REDIRECT_STATUS = 300;
+export const AUTHENTICATION_ERROR_STATUS = 401;
+export const _404_ERROR_STATUS = 404;
+export const SERVER_ERROR_STATUS = 500;
 
 /*
 * ACTIONS
 * */
 export const LOGIN_ACTION = 'login';
 export const LOGOUT_ACTION = 'logout';
+export const REDIRECT_ACTION = 'redirect';
+export const SERVER_ERROR = 'server_error';
 
 export const SAVE_ACTION = 'save_changes';
 export const SET_ACTIVE = 'activate_account';
