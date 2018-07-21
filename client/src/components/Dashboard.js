@@ -19,15 +19,13 @@ class Dashboard extends Component {
 
 	render() {
 		const props = this.props;
-		if (props.status === OK_STATUS) {
-			return (
-				<section>
+		if (props.status !== OK_STATUS) return null;
+		return (
+			<section>
 					<HeroBanner user={props.user} />
 					<Accounts user={props.user} />
 				</section>
-			);
-		}
-		return false;
+		);
 	}
 }
 

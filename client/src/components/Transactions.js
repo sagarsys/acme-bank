@@ -19,20 +19,18 @@ class Transactions extends Component {
 	}
 
 	render() {
-		if (this.props.status === OK_STATUS) {
-			return (
-				<section className="transactions">
-					<h1>Transactions</h1>
-					<p className="flow-text">You can find a list of the deposits and/or withdrawals made to your active account(s) here.</p>
-					<ul className="collapsible popout">
-						{this.props.user.accounts && this.props.user.accounts.map((account) => (
-							<AccountTransaction key={account.number} account={account} />
-						))}
-					</ul>
-				</section>
-			);
-		}
-		return false;
+		if (this.props.status !== OK_STATUS) return null;
+		return (
+			<section className="transactions">
+				<h1>Transactions</h1>
+				<p className="flow-text">You can find a list of the deposits and/or withdrawals made to your active account(s) here.</p>
+				<ul className="collapsible popout">
+					{this.props.user.accounts && this.props.user.accounts.map((account) => (
+						<AccountTransaction key={account.number} account={account} />
+					))}
+				</ul>
+			</section>
+		);
 	}
 }
 

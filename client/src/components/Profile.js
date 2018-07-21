@@ -18,15 +18,13 @@ class Profile extends Component {
 
 	render() {
 		const props = this.props;
-		if (props.status === OK_STATUS) {
-			return (
-				<section className="profile">
-					<h1>Personal Details</h1>
-					<ProfileDetails user={props.user}/>
-				</section>
-			);
-		}
-		return false;
+		if (props.status !== OK_STATUS) return null;
+		return (
+			<section className="profile">
+				<h1>Personal Details</h1>
+				<ProfileDetails user={props.user}/>
+			</section>
+		);
 	}
 }
 
