@@ -22,11 +22,8 @@ Fully responsive. Uses mock data to operate.
 
 ## _TODO / Improvements_
 - Migrate all of the state management away from react to redux
-- Add material progress whenever a request is made to server
-- ANIMATIONS! UI/UX overhaul
 - Create FUN 404
 - Add a NoSQL DB to persist changes
-- Check for cross-browser bugs (IE11+)
 - Deploy to an online platform like Heroku
 
 _...and more!_

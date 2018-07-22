@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { checkLogin, redirectUser } from '../../actions/loginActions';
+import { setActivity, setNoActivity } from '../../actions/activityIndicatorActions';
 import {
 	_404_ERROR_STATUS,
 	AUTHENTICATION_ERROR_STATUS,
@@ -31,30 +32,32 @@ class LoginForm extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if (prevProps && prevProps !== this.props && this.props.status)
-		switch ( this.props.status ) {
-			case OK_STATUS:
-				this.props.redirectUser('/dashboard', { status: OK_STATUS, message: '' });
-				break;
-			case DEFAULT_STATUS:
-				this.setState({ hasError: false });
-				break;
-			case _404_ERROR_STATUS:
-				// User does not exist
-				this.setState({ hasError: true, isEmailValid: false, message: 'No user with this email found' });
-				break;
-			case AUTHENTICATION_ERROR_STATUS:
-				// Wrong password
-				this.setState({ hasError: true, isPassValid: false, message: 'Wrong password' });
-				break;
-			case ERROR_STATUS:
-				// Both
-				this.setState({ hasError: true, isEmailValid: false, isPassValid: false, message: 'Sorry, looks like something went wrong! Try again? :)' });
-				break;
-			case ( this.props.status >= ERROR_STATUS ):
-			default:
-				this.setState({ hasError: true });
-				break;
+		if (prevProps && prevProps !== this.props && this.props.status) {
+			setTimeout(() => this.props.setNoActivity(), 300);
+			switch ( this.props.status ) {
+				case OK_STATUS:
+					this.props.redirectUser('/dashboard', { status: OK_STATUS, message: '' });
+					break;
+				case DEFAULT_STATUS:
+					this.setState({ hasError: false });
+					break;
+				case _404_ERROR_STATUS:
+					// User does not exist
+					this.setState({ hasError: true, isEmailValid: false, message: 'No user with this email found' });
+					break;
+				case AUTHENTICATION_ERROR_STATUS:
+					// Wrong password
+					this.setState({ hasError: true, isPassValid: false, message: 'Wrong password' });
+					break;
+				case ERROR_STATUS:
+					// Both
+					this.setState({ hasError: true, isEmailValid: false, isPassValid: false, message: 'Sorry, looks like something went wrong! Try again? :)' });
+					break;
+				case ( this.props.status >= ERROR_STATUS ):
+				default:
+					this.setState({ hasError: true });
+					break;
+			}
 		}
 	}
 
@@ -69,8 +72,8 @@ class LoginForm extends Component {
 	}
 
 	handleSubmit(e) {
+		this.props.setActivity();
 		e.preventDefault();
-
 		this.setState({
 			hasError: false,
 			isEmailValid: true,
@@ -142,6 +145,8 @@ class LoginForm extends Component {
 LoginForm.propTypes = {
 	checkLogin: PropTypes.func.isRequired,
 	redirectUser: PropTypes.func.isRequired,
+	setActivity: PropTypes.func.isRequired,
+	setNoActivity: PropTypes.func.isRequired,
 	status: PropTypes.number,
 	user: PropTypes.object,
 	message: PropTypes.string,
@@ -150,7 +155,7 @@ LoginForm.propTypes = {
 const mapStateToProps = (state) => ({
 	status: state.login.status,
 	message: state.login.message,
-	user: state.login.user
+	user: state.login.user,
 });
 
-export default withRouter(connect(mapStateToProps, { checkLogin, redirectUser })(LoginForm));
+export default withRouter(connect(mapStateToProps, { checkLogin, redirectUser, setActivity, setNoActivity })(LoginForm));

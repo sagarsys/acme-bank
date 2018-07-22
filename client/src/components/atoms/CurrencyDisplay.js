@@ -8,7 +8,7 @@ const CurrencyDisplay = props => {
 		)
 		:
 		(
-			<span>{props.account.currency}</span>
+			<span>{props.currency}</span>
 		);
 };
 
