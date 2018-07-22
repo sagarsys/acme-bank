@@ -12,7 +12,7 @@ import {
 } from '../../actions/types';
 
 import Logo from '../atoms/Logo';
-import InputField from '../atoms/InputField';
+import Input from './Input';
 
 class LoginForm extends Component {
 	constructor(props) {
@@ -65,7 +65,7 @@ class LoginForm extends Component {
 			isEmailValid: true,
 			isPassValid: true,
 			message: ''
-		})
+		});
 	}
 
 	handleSubmit(e) {
@@ -89,7 +89,6 @@ class LoginForm extends Component {
 	render() {
 		const props = this.props;
 		const state = this.state;
-
 		return (
 			<form className="login-form card-panel small" onSubmit={ this.handleSubmit }>
 
@@ -108,28 +107,28 @@ class LoginForm extends Component {
 					</div>
 				) }
 
-				<InputField
+				<Input
 					type="email"
 					name="email"
 					label="Email"
+					onChange={this.onInputChange}
 					icon="email"
-					required={ true }
-					data-input-class={ state.hasError && !state.isEmailValid && 'invalid' }
-					data-error={ state.message || 'Please supply a valid email address, sample: john@email.com' }
-					data-success="Valid"
-					onChange={ this.onInputChange }
+					required={true}
+					className={ state.hasError && !state.isEmailValid && 'invalid' }
+					error={ state.message || 'Please supply a valid email address, sample: john@email.com' }
+					success="Valid"
 				/>
 
-				<InputField
+				<Input
 					type="password"
 					name="password"
 					label="Password"
+					onChange={this.onInputChange}
 					icon="vpn_key"
-					required={ true }
-					data-input-class={ state.hasError && !state.isPassValid && 'invalid' }
-					data-error={ state.message || 'Password is required, sample: john' }
-					data-success="Valid"
-					onChange={ this.onInputChange }
+					required={true}
+					className={ state.hasError && !state.isPassValid && 'invalid' }
+					error={ state.message || 'Password is required, sample: john' }
+					success="Valid"
 				/>
 
 				<button type="submit" className="btn-large waves-effect waves-light center-block">Login</button>

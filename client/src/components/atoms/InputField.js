@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default (props) => (
-	<div {...props} className={props.className ? props.className + " input-field" : "input-field"} >
-		<i className="material-icons prefix">{props.icon}</i>
-		<input
-			type={props.type}
-			name={props.name}
-			required={props.required}
-			value={props.value}
-			defaultValue={props.defaultValue}
-			pattern={props.pattern}
-			readOnly={props.readonly}
-			disabled={props.disabled}
-			max={props.max}
-			className={props['data-input-class'] || 'validate'}
-		/>
-		<label htmlFor={props.name}>{props.label}</label>
-		<span className="helper-text"
-		      data-error={props['data-error']}
-		      data-success={props['data-success']}
-		> </span>
-	</div>
-);
+class InputField extends Component {
+	constructor(props) {
+		super(props);
+		this.handleChange = this.handleChange.bind(this);
+	}
 
+	handleChange(e) {
+		this.props.onChange(e);
+	}
+
+	render() {
+		const props = this.props;
+		return (
+			<input
+				{...props}
+				type={props.type}
+				name={props.name}
+				value={props.value}
+				className={'validate'}
+				onChange={this.handleChange}
+			/>
+		);
+	}
+}
+
+InputField.propTypes = {
+	onChange: PropTypes.func.isRequired,
+	type: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	value: PropTypes.string
+};
+
+export default InputField;

@@ -4,5 +4,5 @@ import React from 'react';
 import logo from '../../assets/img/logo_acme.jpg';
 
 export default (props) => (
-	<img {...props} src={logo} alt="Acme Bank" />
+	<img src={logo} alt="Acme Bank" {...props} />
 );
