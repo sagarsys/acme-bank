@@ -11,13 +11,12 @@ const HeroBanner = props => (
 			<HeroImage />
 			<QuickProfileAccess className="card-title" username={props.username} />
 		</div>
-		<Welcome accountNumber={props.accountNumber} />
+		<Welcome />
 	</div>
 );
 
 HeroBanner.propTypes = {
 	username: PropTypes.string.isRequired,
-	accountNumber: PropTypes.number.isRequired,
 };
 
 export default HeroBanner;

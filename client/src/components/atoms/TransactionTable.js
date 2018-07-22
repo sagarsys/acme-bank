@@ -9,7 +9,7 @@ export default (props) => {
 		<table className="centered responsive-table">
 			<thead>
 			<tr>
-				<th>TRANSACTION ID</th>
+				<th>#</th>
 				<th>DATE</th>
 				<th>TYPE</th>
 				<th>CURRENCY</th>
@@ -27,7 +27,7 @@ export default (props) => {
 						balance -= t.amount
 					;
 					return (
-						<TransactionTableRow transaction={t} balance={balance} />
+						<TransactionTableRow key={t.id} transaction={t} balance={balance} />
 					);
 				})
 			}

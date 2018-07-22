@@ -4,7 +4,7 @@ import { formatNumberToCurrencyFormat } from '../../helpers/utilities';
 
 const TransactionTableRow = props => {
 	return (
-		<tr key={props.transaction.id}>
+		<tr>
 			<td>{props.transaction.id}</td>
 			<td>{props.transaction.date}</td>
 			<td>{props.transaction.type.toUpperCase()}</td>

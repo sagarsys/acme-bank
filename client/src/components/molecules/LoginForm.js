@@ -33,7 +33,7 @@ class LoginForm extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (prevProps && prevProps !== this.props && this.props.status) {
-			setTimeout(() => this.props.setNoActivity(), 300);
+			this.props.setNoActivity();
 			switch ( this.props.status ) {
 				case OK_STATUS:
 					this.props.redirectUser('/dashboard', { status: OK_STATUS, message: '' });

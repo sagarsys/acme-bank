@@ -22,7 +22,7 @@ class Dashboard extends Component {
 		if (props.status !== OK_STATUS) return null;
 		return (
 			<section>
-					<HeroBanner username={props.user.name} accountNumber={props.user.accounts[0].number} />
+					<HeroBanner username={props.user.name} />
 					<Accounts accounts={props.user.accounts} view={true} floating={true} />
 				</section>
 		);
