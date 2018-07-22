@@ -32,5 +32,11 @@
 		padding: 0 18px;
 		color: #fff;
 	}
-
+	ul {
+		a {
+			&.active {
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+		}
+	}
 }

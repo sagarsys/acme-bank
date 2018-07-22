@@ -12141,6 +12141,9 @@ form .input-field {
   padding: 0 18px;
   color: #fff; }
 
+.nav-wrapper ul li a.active {
+  background-color: rgba(0, 0, 0, 0.1); }
+
 .page-footer {
   padding: 0; }
 
