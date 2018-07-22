@@ -1,13 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Account from '../atoms/Account';
 
-export default (props) => (
-	<section {...props} className="accounts">
+const Accounts = props => (
+	<section className="accounts">
 		<ul className="collection">
-			{props.user.accounts && props.user.accounts.map((account) => (
-				account.status ? <Account key={account.number} account={account} /> : null
-			))}
+			{
+				props.accounts && props.accounts.map((account) => (
+					(account.status || props.edit) ?
+						<Account
+							key={account.number}
+							account={account}
+							view={props.view}
+							edit={props.edit}
+							floating={props.floating}
+							onChange={props.onChange}
+						/>
+						:
+						null
+				))
+			}
 		</ul>
 	</section>
 );
+
+Accounts.propTypes = {
+	accounts: PropTypes.array.isRequired,
+	edit: PropTypes.bool,
+	view: PropTypes.bool,
+	floating: PropTypes.bool,
+	onChange: PropTypes.func
+};
+
+export default Accounts;

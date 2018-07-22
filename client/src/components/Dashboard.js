@@ -23,7 +23,7 @@ class Dashboard extends Component {
 		return (
 			<section>
 					<HeroBanner user={props.user} />
-					<Accounts user={props.user} />
+					<Accounts accounts={props.user.accounts} view={true} floating={true} />
 				</section>
 		);
 	}

@@ -8,4 +8,27 @@
 			}
 		}
 	}
+	.accounts {
+		.collection-item {
+			.status {
+				bottom: unset;
+				top: 1.5rem;
+				// nesting necessary to overwrite styles
+				.status-switch {
+					> .circle {
+						transition: transform 500ms ease-out;
+						&.red {
+							left: 1rem !important;
+							transform: translate3d(0%, 12px, 0);
+						}
+						&.green {
+							right: 1.5rem !important;
+							transform: translate3d(100%, 12px, 0);
+						}
+					}
+				}
+			}
+		}
+	}
 }
+

@@ -2,8 +2,8 @@ const AC_SAVINGS_TYPE = 'savings';
 const AC_CHECKING_TYPE = 'checking';
 const DEPOSIT_TRANSACTION = 'deposit';
 const WITHDRAWAL_TRANSACTION = 'withdrawal';
-const INACTIVE = 0;
-const ACTIVE = 1;
+const INACTIVE = false;
+const ACTIVE = true;
 
 const CUSTOMERS = [
     {

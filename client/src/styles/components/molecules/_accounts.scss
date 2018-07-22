@@ -1,5 +1,6 @@
 .accounts {
 	width: 100%;
+	margin-top: $global-spacing;
 	.collection-item {
 		background-color: color("grey", "lighten-5");
 		position: relative;
@@ -60,6 +61,7 @@
 		}
 	}
 	&.account-transaction {
+		margin-top: 0;
 		.status {
 			right: 1rem !important;
 		}

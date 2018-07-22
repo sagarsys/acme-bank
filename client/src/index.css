@@ -12141,7 +12141,7 @@ form .input-field {
   padding: 0 18px;
   color: #fff; }
 
-.nav-wrapper ul li a.active {
+.nav-wrapper ul a.active {
   background-color: rgba(0, 0, 0, 0.1); }
 
 .page-footer {
@@ -12161,7 +12161,8 @@ form .input-field {
   color: #263238; }
 
 .accounts {
-  width: 100%; }
+  width: 100%;
+  margin-top: 1.5rem; }
   .accounts .collection-item {
     background-color: #fafafa;
     position: relative;
@@ -12205,8 +12206,10 @@ form .input-field {
         transform: translate3d(0, 6px, 0); }
       .accounts .collection-item .status span:first-child {
         padding: 0 1.2rem 0 0; }
-  .accounts.account-transaction .status {
-    right: 1rem !important; }
+  .accounts.account-transaction {
+    margin-top: 0; }
+    .accounts.account-transaction .status {
+      right: 1rem !important; }
 
 .login {
   max-width: 900px;
@@ -12236,3 +12239,15 @@ form .input-field {
   align-items: center; }
   .profile .profile-form button i {
     padding: 0 8px 0 0; }
+
+.profile .accounts .collection-item .status {
+  bottom: unset;
+  top: 1.5rem; }
+  .profile .accounts .collection-item .status .status-switch > .circle {
+    transition: transform 500ms ease-out; }
+    .profile .accounts .collection-item .status .status-switch > .circle.red {
+      left: 1rem !important;
+      transform: translate3d(0%, 12px, 0); }
+    .profile .accounts .collection-item .status .status-switch > .circle.green {
+      right: 1.5rem !important;
+      transform: translate3d(100%, 12px, 0); }

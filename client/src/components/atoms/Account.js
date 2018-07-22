@@ -1,70 +1,43 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { formatNumberToCurrencyFormat } from '../../helpers/utilities';
+import PropTypes from 'prop-types';
 
-export default (props) => (
-	<li className="collection-item avatar" {...props}>
-		<i className="material-icons white-text circle">account_balance</i>
-		<p className="title account-type" title="Account type">{props.account.type.toUpperCase()} Accounts</p>
-		<p className="flow-text account-balance">
-			<span title="Account Balance">
-				{
-					props.account.currency === 'EUR' ?
-					(
-						<i className="material-icons">euro_symbol</i>
-					)
-						:
-					<span>{props.account.currency}</span>
-				}
-				<span>{formatNumberToCurrencyFormat(props.account.balance, 2)}</span>
-				<br />
-			</span>
-			<small className="account-num" title="Account Number">
-				<strong>Account Number: </strong>{props.account.number}
-			</small>
-		</p>
-		{
-			(!props['data-edit'] && !props['data-view'] && props.account.status) ?
-				(
-					<Link to={`/transactions/${props.account.number}`} className="secondary-content btn-floating btn-large waves-effect waves-light secondary" title="View Transactions">
-						<i className="material-icons">add</i>
-					</Link>
-				)
-			:
-				null
-		}
-		{
-			!props['data-edit'] || props['data-view'] ?
-				(
-					<div className="status" title="Account status">
-						<span>{props.account.status ? 'Active' : 'Inactive' }</span>
-						{
-							props.account.status ?
-								<span className="circle status-circle green"> </span>
-							:
-								<span className="circle status-circle red"> </span>
-						}
-					</div>
-				)
-			:
-			(
-				<div className="status" title="Toggle status">
-					<div className="switch">
-						<label>
-							Inactive
-							<input type="checkbox" checked={!!props.account.status}/>
-							<span className="lever"> </span>
-							Active
-						</label>
-					</div>
-					{
-						props.account.status ?
-							<span className="circle status-circle green"> </span>
-							:
-							<span className="circle status-circle red"> </span>
-					}
-				</div>
-			)
-		}
-	</li>
-);
+import Status from './Status';
+import FloatingTransactionLink from './FloatingTransactionLink';
+import AccountBalance from './AccountBalance';
+
+const Account = (props) => {
+	const hasSwitch = (props.edit || !props.view);
+	return (
+		<li className="collection-item avatar">
+			<i className="material-icons white-text circle">account_balance</i>
+			<p className="title account-type" title="Account type">{props.account.type.toUpperCase()} Accounts</p>
+			<AccountBalance
+				currency={props.account.currency}
+				balance={props.account.balance}
+				accountNumber={props.account.number}
+			/>
+			<FloatingTransactionLink
+				floating={props.floating}
+				status={props.account.status}
+				accountNumber={props.account.number}
+			/>
+			<Status
+				status={props.account.status}
+				edit={props.edit}
+				view={props.view}
+				accountNumber={hasSwitch ? props.account.number : null}
+				onChange={hasSwitch ? props.onChange : null}
+			/>
+		</li>
+	);
+};
+
+Account.propTypes = {
+	edit: PropTypes.bool,
+	view: PropTypes.bool,
+	floating: PropTypes.bool,
+	account: PropTypes.object.isRequired,
+};
+
+
+export default Account;

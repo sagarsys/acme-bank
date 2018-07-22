@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 import PUT from '../../helpers/fetch-put';
 
 import Input from './Input';
-
-// import Accounts from './Accounts'
+import Accounts from './Accounts'
 
 class ProfileDetails extends Component {
 	constructor(props) {
@@ -24,10 +23,10 @@ class ProfileDetails extends Component {
 			hasError: false,
 			message: ''
 		};
-		console.warn(this.state);
 		// This binding is necessary to make `this` work in the callback
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
+		this.onStatusSwitch = this.onStatusSwitch.bind(this);
 	}
 
 	componentDidMount() {
@@ -67,6 +66,17 @@ class ProfileDetails extends Component {
 				hasChange: (prevState.user[field] && prevState.user[field] !== value) || prevState.hasChange,
 			}
 		});
+	}
+
+	onStatusSwitch(e) {
+		const state = this.state;
+		const accountNumber = parseInt(e.target.name.split('_')[1], 10);
+		const newStatus = e.target.checked;
+		const accountIndex = state.user.accounts.findIndex(a => a.number === accountNumber);
+
+		state.user.accounts[accountIndex].status = newStatus;
+
+		this.setState({ user: state.user });
 	}
 
 	render() {
@@ -146,8 +156,7 @@ class ProfileDetails extends Component {
 					success="Valid"
 				/>
 
-				{/*TODO: Implement Accounts to toggle Account status*/}
-				{/*<Accounts data-edit={true} />*/}
+				<Accounts edit={true} accounts={this.state.user.accounts} onChange={this.onStatusSwitch} />
 
 				<button type="submit" className="btn-large waves-effect waves-light center-block" disabled={!this.state.hasChange}>
 					<i className="material-icons">save</i>Save Changes

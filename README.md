@@ -5,6 +5,7 @@ Fully responsive. Uses mock data to operate.
 ## _Requirements_
 - Node JS
 - NPM / YARN
+- nodemon [ `npm i -g nodemon` ]
 - node-sass-chokidar [ `npm i -g node-sass-chokidar` ]
 
 ## _Quick start_
@@ -21,7 +22,6 @@ Fully responsive. Uses mock data to operate.
 
 ## _TODO / Improvements_
 - Migrate all of the state management away from react to redux
-- Add new feature to Profile page that would allow the user to toggle the status of his accounts (active/inactive)
 - Add material progress whenever a request is made to server
 - ANIMATIONS! UI/UX overhaul
 - Create FUN 404

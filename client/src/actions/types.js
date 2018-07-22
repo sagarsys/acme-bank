@@ -5,8 +5,8 @@ export const AC_SAVINGS_TYPE = 'savings';
 export const AC_CHECKING_TYPE = 'checking';
 export const DEPOSIT_TRANSACTION = 'deposit';
 export const WITHDRAWAL_TRANSACTION = 'withdrawal';
-export const INACTIVE = 0;
-export const ACTIVE = 1;
+export const INACTIVE = false;
+export const ACTIVE = true;
 export const DEFAULT_XHR_HEADERS = {
 	'Accept': 'application/json',
 	'Content-Type': 'application/json'
