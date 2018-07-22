@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "concurrently": "^3.6.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
@@ -19,9 +20,6 @@
     "morgan": "~1.9.0",
     "node-sass-chokidar": "^1.3.3",
     "pug": "2.0.0-beta11"
-  },
-  "devDependencies": {
-    "concurrently": "^3.6.0"
   },
   "author": "Sagar Sawuck<sagar.sawuck@gmail.com>",
   "license": "MIT"

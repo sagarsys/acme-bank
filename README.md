@@ -6,7 +6,6 @@ Fully responsive. Uses mock data to operate.
 - Node JS
 - NPM / YARN
 - nodemon [ `npm i -g nodemon` ]
-- node-sass-chokidar [ `npm i -g node-sass-chokidar` ]
 
 ## _Quick start_
 - Clone or download project
@@ -20,7 +19,7 @@ Fully responsive. Uses mock data to operate.
     - `Email: sam@email.com  ---> Password: sam`
     - `Email: jane@acme.com  ---> Password: jane`
 
-## _TODO / Improvements_
+## _TODO_
 - Migrate all of the state management away from react to redux
 - Create FUN 404
 - Add a NoSQL DB to persist changes
