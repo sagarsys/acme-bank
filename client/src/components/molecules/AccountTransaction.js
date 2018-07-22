@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import TransactionTable from '../atoms/TransactionTable';
 import Account from '../atoms/Account';
 
-export default (props) => {
+const AccountTransaction = (props) => {
 	return props.account.status ?
 		(
 			<li {...props}>
@@ -19,3 +21,9 @@ export default (props) => {
 		:
 		null;
 };
+
+AccountTransaction.propTypes = {
+	account: PropTypes.object.isRequired,
+};
+
+export default AccountTransaction;

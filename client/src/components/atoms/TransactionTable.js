@@ -1,7 +1,7 @@
 import React from 'react';
-
-import { formatNumberToCurrencyFormat } from '../../helpers/utilities';
 import { DEPOSIT_TRANSACTION } from '../../actions/types';
+
+import TransactionTableRow from './TransactionTableRow';
 
 export default (props) => {
 	let balance = 0;
@@ -9,7 +9,7 @@ export default (props) => {
 		<table className="centered responsive-table">
 			<thead>
 			<tr>
-				<th>ID</th>
+				<th>TRANSACTION ID</th>
 				<th>DATE</th>
 				<th>TYPE</th>
 				<th>CURRENCY</th>
@@ -26,16 +26,8 @@ export default (props) => {
 					:
 						balance -= t.amount
 					;
-
 					return (
-						<tr key={t.id}>
-							<td>{t.id}</td>
-							<td>{t.date}</td>
-							<td>{t.type.toUpperCase()}</td>
-							<td>{t.currency}</td>
-							<td>{formatNumberToCurrencyFormat(t.amount, 2)}</td>
-							<td>{formatNumberToCurrencyFormat(balance, 2)}</td>
-						</tr>
+						<TransactionTableRow transaction={t} balance={balance} />
 					);
 				})
 			}
