@@ -9,10 +9,9 @@ Fully responsive. Uses mock data to operate.
 
 ## _Quick start_
 - Clone or download project
-- Open up a terminal in the root project directory
-- Run `npm run quickstart` or `yarn quickstart`
+- Run `npm run quickstart` or `yarn quickstart` in the root project directory
    - This will install server-side dependencies (Express server...)
-   - Install client dependencies (react redux stuff...)
+   - Install client dependencies (react redux...)
    - If everything went right, it should then create an Express server on `PORT 5000` and a WebpackDevServer on `PORT 3000` - which should open up in the browser
 - You can use any of the following details to log into the app:
     - `Email: john@email.com  ---> Password: john`
