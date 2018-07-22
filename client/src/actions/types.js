@@ -34,6 +34,3 @@ export const SET_INACTIVE = 'deactivate_account';
 export const SET_HAS_ACTIVITY = 'has_activity';
 export const SET_NO_ACTIVITY = 'no_activity';
 
-export const VIEW_ACCOUNT_TRANSACTIONS = 'view_account_transaction';
-
-export const NAV_PROFILE = 'navigate_to_profile';

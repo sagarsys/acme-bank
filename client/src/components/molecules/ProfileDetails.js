@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import PUT from '../../helpers/fetch-put';
+import { updateProfileDetails } from '../../actions/profileActions';
 
 import Input from './Input';
 import Accounts from './Accounts'
@@ -37,16 +37,7 @@ class ProfileDetails extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-
-		PUT('/api/profile', this.state.user)
-			.then(
-				data => console.log(data)
-			);
-			// .then(data => dispatch({
-			// 		type: SAVE_ACTION,
-			// 		payload: data
-			// 	})
-
+		this.props.updateProfileDetails(this.state.user);
 		this.setState({ hasChange: false });
 	};
 
@@ -171,12 +162,13 @@ class ProfileDetails extends Component {
 }
 
 ProfileDetails.propTypes = {
-	user: PropTypes.object.isRequired
+	user: PropTypes.object.isRequired,
+	updateProfileDetails: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
 	user: state.login.user
 });
 
-export default withRouter(connect(mapStateToProps)(ProfileDetails));
+export default withRouter(connect(mapStateToProps, { updateProfileDetails })(ProfileDetails));
 
