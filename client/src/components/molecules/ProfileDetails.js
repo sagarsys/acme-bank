@@ -76,7 +76,10 @@ class ProfileDetails extends Component {
 
 		state.user.accounts[accountIndex].status = newStatus;
 
-		this.setState({ user: state.user });
+		this.setState({
+			user: state.user,
+			hasChange: true
+		});
 	}
 
 	render() {
