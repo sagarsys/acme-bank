@@ -27,9 +27,9 @@ export const LOGOUT_ACTION = 'logout';
 export const REDIRECT_ACTION = 'redirect';
 export const SERVER_ERROR = 'server_error';
 
-export const SAVE_ACTION = 'save_changes';
-export const SET_ACTIVE = 'activate_account';
-export const SET_INACTIVE = 'deactivate_account';
+export const UPDATE_ACTION = 'save_changes';
+export const RESET_REQUEST_STATUS = 'reset_req_status';
+export const RESET_STATUS = 'reset_status';
 
 export const SET_HAS_ACTIVITY = 'has_activity';
 export const SET_NO_ACTIVITY = 'no_activity';

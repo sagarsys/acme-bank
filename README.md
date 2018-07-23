@@ -19,7 +19,6 @@ Fully responsive. Uses mock data to operate.
     - `Email: jane@acme.com  ---> Password: jane`
 
 ## _TODO_
-- Migrate all of the state management away from react to redux
 - Create FUN 404
 - Add a NoSQL DB to persist changes
 - Deploy to an online platform like Heroku

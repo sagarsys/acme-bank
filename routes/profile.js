@@ -32,7 +32,6 @@ router.get('/:id', function (req, res, next) {
 router.put('/', function(req, res, next) {
     const id = parseInt(req.body.id, 10);
     if (id) {
-        const userIndex = CUSTOMERS.findIndex(customer => customer.id === id);
         const user = findUser(id);
         if (!user.length) {
         	return res.json({
@@ -41,7 +40,7 @@ router.put('/', function(req, res, next) {
 		        user: req.body
 	        });
         }
-        const updatedUser = Object.assign({}, CUSTOMERS[userIndex], user[0]);
+        const updatedUser = Object.assign({}, user[0], req.body);
         return res.json({
             status: 200,
             user: updatedUser,

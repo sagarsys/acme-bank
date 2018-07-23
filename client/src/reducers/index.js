@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
+import appReducer from './appReducer';
 import activityIndicatorReducer from './activityIndicatorReducer';
-import loginReducer from './loginReducer';
-import profileReducer from './profileReducer';
 
 export default combineReducers({
+	app: appReducer,
 	activity: activityIndicatorReducer,
-	login: loginReducer,
-	profile: profileReducer,
 })

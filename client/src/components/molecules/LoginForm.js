@@ -153,9 +153,9 @@ LoginForm.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-	status: state.login.status,
-	message: state.login.message,
-	user: state.login.user,
+	status: state.app.status,
+	message: state.app.message,
+	user: state.app.user,
 });
 
 export default withRouter(connect(mapStateToProps, { checkLogin, redirectUser, setActivity, setNoActivity })(LoginForm));

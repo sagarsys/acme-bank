@@ -13,7 +13,7 @@ router.post('/', function (req, res, next) {
 			if (user[0].password === req.body.password) {
 				res.json({
 					status: 200,
-					message: 'OK',
+					message: '',
 					user: user[0],
 				})
 			}

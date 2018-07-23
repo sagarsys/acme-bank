@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { updateProfileDetails } from '../../actions/profileActions';
+import { resetRequestStatus, updateProfileDetails } from '../../actions/profileActions';
+import { setActivity, setNoActivity } from '../../actions/activityIndicatorActions';
+import { DEFAULT_STATUS } from '../../actions/types';
 
 import Input from './Input';
 import Accounts from './Accounts'
@@ -35,7 +37,17 @@ class ProfileDetails extends Component {
 		window.M && window.M.updateTextFields() && window.M.validate_field();
 	}
 
+	componentDidUpdate(prevProps) {
+		if ( prevProps && this.props.requestStatus !== DEFAULT_STATUS ) {
+			const user = this.props.user;
+			this.setState({ user, hasChange: false });
+			this.props.resetRequestStatus();
+			this.props.setNoActivity();
+		}
+	}
+
 	handleSubmit(e) {
+		this.props.setActivity();
 		e.preventDefault();
 		this.props.updateProfileDetails(this.state.user);
 		this.setState({ hasChange: false });
@@ -50,7 +62,6 @@ class ProfileDetails extends Component {
 		const user = Object.assign({}, this.state.user, { [field]: value });
 		const error = Object.assign({}, this.state.error, { [field]: false });
 		this.setState((prevState) => {
-			// console.log(Object.is(prevState.user, this.state.user));
 			return {
 				user,
 				error,
@@ -164,11 +175,25 @@ class ProfileDetails extends Component {
 ProfileDetails.propTypes = {
 	user: PropTypes.object.isRequired,
 	updateProfileDetails: PropTypes.func.isRequired,
+	resetRequestStatus: PropTypes.func.isRequired,
+	setActivity: PropTypes.func.isRequired,
+	setNoActivity: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-	user: state.login.user
+	user: state.app.user,
+	message: state.app.message,
+	requestStatus: state.app.requestStatus,
 });
 
-export default withRouter(connect(mapStateToProps, { updateProfileDetails })(ProfileDetails));
-
+export default withRouter(
+	connect(
+		mapStateToProps,
+			{
+				updateProfileDetails,
+				resetRequestStatus,
+				setActivity,
+				setNoActivity
+			}
+	)(ProfileDetails)
+);

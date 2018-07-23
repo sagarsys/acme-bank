@@ -85,7 +85,7 @@ NavBar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	status: state.login.status
+	status: state.app.status
 });
 
 export default withRouter(connect(mapStateToProps, { logoutUser, redirectUser })(NavBar))

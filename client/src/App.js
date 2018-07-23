@@ -76,9 +76,9 @@ class App extends Component {
 }
 
 const mapSateToProps = state => ({
-	status: state.login.status,
-	message: state.login.message,
-	user: state.login.user,
+	status: state.app.status,
+	message: state.app.message,
+	user: state.app.user,
 	activity: state.activity.hasActivity
 });
 

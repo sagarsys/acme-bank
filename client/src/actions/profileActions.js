@@ -1,4 +1,4 @@
-import { SAVE_ACTION, SERVER_ERROR } from './types';
+import { UPDATE_ACTION, SERVER_ERROR, RESET_REQUEST_STATUS } from './types';
 import { PUT } from '../helpers/fetch-put';
 
 export const updateProfileDetails = (profile) => dispatch => {
@@ -6,7 +6,7 @@ export const updateProfileDetails = (profile) => dispatch => {
 		.then(data => {
 			if (data) {
 				return dispatch({
-					type: SAVE_ACTION,
+					type: UPDATE_ACTION,
 					payload: data
 				});
 			}
@@ -15,3 +15,8 @@ export const updateProfileDetails = (profile) => dispatch => {
 			});
 		})
 };
+
+
+export const resetRequestStatus = () => dispatch => dispatch({
+	type: RESET_REQUEST_STATUS
+});

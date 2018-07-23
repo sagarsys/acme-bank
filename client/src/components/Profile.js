@@ -35,8 +35,8 @@ Profile.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	user: state.login.user,
-	status: state.login.status
+	user: state.app.user,
+	status: state.app.status
 });
 
 export default withRouter(connect(mapStateToProps, { redirectUser })(Profile));

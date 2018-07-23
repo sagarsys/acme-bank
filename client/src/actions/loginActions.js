@@ -1,8 +1,11 @@
-import { LOGIN_ACTION, LOGOUT_ACTION, REDIRECT_ACTION, SERVER_ERROR } from './types';
+import { LOGIN_ACTION, LOGOUT_ACTION, REDIRECT_ACTION, RESET_STATUS, SERVER_ERROR } from './types';
 import POST from '../helpers/fetch-post';
 import { history } from '../store';
 
 export const checkLogin = (loginDetails) => dispatch => {
+	dispatch({
+		type: RESET_STATUS
+	});
 	POST('/api/login', loginDetails)
 		.then(data => {
 			if (data) {
