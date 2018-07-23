@@ -4,6 +4,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { OK_STATUS } from '../../actions/types';
 import { logoutUser, redirectUser } from '../../actions/loginActions';
+import { displayNotification } from '../../helpers/materialize';
 
 import Logo from '../atoms/Logo';
 import LogoutButton from '../atoms/LogoutButton';
@@ -17,6 +18,7 @@ class NavBar extends Component {
 
 	handleLogOut() {
 		this.props.logoutUser();
+		displayNotification('Logout successful!')
 	}
 
 	render() {
