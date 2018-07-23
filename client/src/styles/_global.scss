@@ -30,3 +30,15 @@ form {
 	margin: 0;
 	z-index: 99999;
 }
+
+#toast-container {
+	.toast {
+		justify-content: center;
+	}
+	@media #{$large-and-up} {
+		top: unset;
+		bottom: 60px;
+		left: 50%;
+		transform: translate3d(-50%, 0, 0);
+	}
+}

@@ -11,6 +11,7 @@ import {
 	ERROR_STATUS,
 	OK_STATUS
 } from '../../actions/types';
+import { displayNotification } from '../../helpers/materialize';
 
 import Logo from '../atoms/Logo';
 import Input from './Input';
@@ -36,6 +37,7 @@ class LoginForm extends Component {
 			this.props.setNoActivity();
 			switch ( this.props.status ) {
 				case OK_STATUS:
+					displayNotification(`Login successful! Welcome to your dashboard, ${ this.props.user.name }!`, 'success');
 					this.props.redirectUser('/dashboard', { status: OK_STATUS, message: '' });
 					break;
 				case DEFAULT_STATUS:

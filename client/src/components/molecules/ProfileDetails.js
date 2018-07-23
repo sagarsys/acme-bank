@@ -4,7 +4,8 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { resetRequestStatus, updateProfileDetails } from '../../actions/profileActions';
 import { setActivity, setNoActivity } from '../../actions/activityIndicatorActions';
-import { DEFAULT_STATUS } from '../../actions/types';
+import { DEFAULT_STATUS, OK_STATUS } from '../../actions/types';
+import { displayNotification } from '../../helpers/materialize';
 
 import Input from './Input';
 import Accounts from './Accounts'
@@ -41,6 +42,7 @@ class ProfileDetails extends Component {
 		if ( prevProps && this.props.requestStatus !== DEFAULT_STATUS ) {
 			const user = this.props.user;
 			this.setState({ user, hasChange: false });
+			displayNotification(this.props.message, this.props.requestStatus === OK_STATUS ? 'success' : 'error');
 			this.props.resetRequestStatus();
 			this.props.setNoActivity();
 		}
