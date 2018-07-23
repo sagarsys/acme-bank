@@ -49,7 +49,7 @@ Fully responsive. Uses mock data to operate.
 - `./bin/www` : Bootstraps Express server to run backend API
 - `./data` : Mock-up data
 - `./public` : Express server static assets, publicly accessible
-- `./views` : Express views to render: Uses PUG templating engine
+- `./views` : Express views to render - uses PUG templating engine
 - `./services` : helpers to use on backend API
 
 ## _TODO_
